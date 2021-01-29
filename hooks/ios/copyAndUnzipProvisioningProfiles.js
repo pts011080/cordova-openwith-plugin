@@ -27,7 +27,7 @@ module.exports = function(context) {
     if (cordovaAbove8) {
         defer = require('q').defer();
     } else {
-        defer = context.requireCordovaModule("q").defer();
+        defer = require("q").defer();
     }
 
     var platform = context.opts.plugin.platform;

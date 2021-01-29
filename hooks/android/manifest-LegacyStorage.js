@@ -14,7 +14,7 @@ function replacerLegacyStorage(match, p1, p2, offset, string){
 module.exports = function (context) {
 
     console.log("Start changing Manifest!");
-    var Q = context.requireCordovaModule("q");
+    var Q = require("q");
     var deferral = new Q.defer();
 
     var projectRoot = context.opts.cordova.project ? context.opts.cordova.project.root : context.opts.projectRoot;
