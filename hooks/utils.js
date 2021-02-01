@@ -73,7 +73,7 @@ module.exports = {
         if (cordovaAbove8) {
             et = require('elementtree');
         } else {
-            et = context.requireCordovaModule('elementtree');
+            et = require('elementtree');
         }
 
         var config_xml = path.join(context.opts.projectRoot, 'config.xml');
