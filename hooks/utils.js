@@ -30,12 +30,14 @@ module.exports = {
         return variable;
     },
     getPreferenceValue: function(config, name) {
+        console.log("config: "+config);
+        console.log("name: "+name);
         var value = config.match(new RegExp('name="' + name + '" value="(.*?)"', "i"));
         if(value && value[1]) {
             console.log("getPreferenceValue A: "+name);
             return value[1];
         } else {
-            console.log("getPreferenceValue B");
+            console.log("getPreferenceValue B: "+value);
             return null;
         }
     },
