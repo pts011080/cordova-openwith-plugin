@@ -19,9 +19,11 @@ module.exports = {
     getCordovaParameter: function (variableName, contents) {
         var variable;
         if(process.argv.join("|").indexOf(variableName + "=") > -1) {
+            log('A',"start");
             var re = new RegExp(variableName + '=(.*?)(\||$)', 'g');
             variable = process.argv.join("|").match(re)[1];
         } else {
+            log('B',"start");
             variable = module.exports.getPreferenceValue(contents, variableName);
         }
         return variable;
@@ -29,8 +31,10 @@ module.exports = {
     getPreferenceValue: function(config, name) {
         var value = config.match(new RegExp('name="' + name + '" value="(.*?)"', "i"));
         if(value && value[1]) {
+            log('value: '+value,"start");
             return value[1];
         } else {
+            log('null',"start");
             return null;
         }
     },
