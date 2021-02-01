@@ -19,11 +19,9 @@ module.exports = {
     getCordovaParameter: function (variableName, contents) {
         var variable;
         if(process.argv.join("|").indexOf(variableName + "=") > -1) {
-            module.exports.log('A',"start");
             var re = new RegExp(variableName + '=(.*?)(\||$)', 'g');
             variable = process.argv.join("|").match(re)[1];
         } else {
-            log('B',"start");
             variable = module.exports.getPreferenceValue(contents, variableName);
         }
         return variable;
@@ -31,10 +29,8 @@ module.exports = {
     getPreferenceValue: function(config, name) {
         var value = config.match(new RegExp('name="' + name + '" value="(.*?)"', "i"));
         if(value && value[1]) {
-            module.exports.log('value: '+value,"start");
             return value[1];
         } else {
-            module.exports.log('null',"error");
             return null;
         }
     },
