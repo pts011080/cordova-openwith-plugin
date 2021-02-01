@@ -21,16 +21,21 @@ module.exports = {
         if(process.argv.join("|").indexOf(variableName + "=") > -1) {
             var re = new RegExp(variableName + '=(.*?)(\||$)', 'g');
             variable = process.argv.join("|").match(re)[1];
+            console.log("getCordovaParameter A");
         } else {
             variable = module.exports.getPreferenceValue(contents, variableName);
+            console.log("getCordovaParameter B: "+variable);
         }
+        console.log("getCordovaParameter variable: "+variable);
         return variable;
     },
     getPreferenceValue: function(config, name) {
         var value = config.match(new RegExp('name="' + name + '" value="(.*?)"', "i"));
         if(value && value[1]) {
+            console.log("getPreferenceValue A: "+name);
             return value[1];
         } else {
+            console.log("getPreferenceValue B");
             return null;
         }
     },

@@ -22,10 +22,6 @@ module.exports = function(context) {
     );
 
     var extensionName = getCordovaParameter("EXTENSION_NAME",contents);
-    log(
-    'extensionName: '+extensionName,
-    'start'
-    );
     var xcConfigPath = path.join(iosFolder, extensionName.replace(" ",""), 'Config.xcconfig');
     log(xcConfigPath,"start");
 
