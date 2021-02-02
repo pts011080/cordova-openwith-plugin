@@ -13,7 +13,7 @@
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
     NSLog(@"url received!");
 
-    if ([url host] isEqualToString:@"shareextension"){
+    if ([[url host] isEqualToString:@"shareextension"]){
         OpenWithPlugin *openWithHandler = [self.viewController getCommandInstance:@"OpenWithPlugin"];
    
         [openWithHandler handleFilesReceived:nil];
